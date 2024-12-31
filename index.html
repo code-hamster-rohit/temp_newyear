@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>New Year 2025 Countdown</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background: linear-gradient(to bottom, #1e3c72, #2a5298);
+            color: #fff;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+        }
+
+        .countdown {
+            text-align: center;
+        }
+
+        .countdown h1 {
+            font-size: 3em;
+            margin-bottom: 20px;
+        }
+
+        .timer {
+            font-size: 2em;
+            display: flex;
+            justify-content: center;
+            gap: 10px;
+        }
+
+        .time {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .time span {
+            font-size: 0.8em;
+            margin-top: 5px;
+        }
+    </style>
+</head>
+<body>
+    <div class="countdown">
+        <h1>Countdown to New Year 2025</h1>
+        <div class="timer">
+            <div class="time">
+                <div id="days">0</div>
+                <span>Days</span>
+            </div>
+            <div class="time">
+                <div id="hours">0</div>
+                <span>Hours</span>
+            </div>
+            <div class="time">
+                <div id="minutes">0</div>
+                <span>Minutes</span>
+            </div>
+            <div class="time">
+                <div id="seconds">0</div>
+                <span>Seconds</span>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        function updateCountdown() {
+            const newYear = new Date('January 1, 2025 00:00:00');
+            const now = new Date();
+            const difference = newYear - now;
+
+            const days = Math.floor(difference / (1000 * 60 * 60 * 24));
+            const hours = Math.floor((difference % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+            const minutes = Math.floor((difference % (1000 * 60 * 60)) / (1000 * 60));
+            const seconds = Math.floor((difference % (1000 * 60)) / 1000);
+
+            document.getElementById('days').textContent = days;
+            document.getElementById('hours').textContent = hours;
+            document.getElementById('minutes').textContent = minutes;
+            document.getElementById('seconds').textContent = seconds;
+        }
+
+        setInterval(updateCountdown, 1000);
+        updateCountdown();
+    </script>
+</body>
+</html>
